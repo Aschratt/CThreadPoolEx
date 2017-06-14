@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+	<metadata>
+		<id>Atl.ThreadPoolEx</id>
+		<version>1.0.0</version>
+		<authors>Carsten Rudolph</authors>
+		<owners>Rudolph, Carsten</owners>
+		<licenseUrl>https://mit-license.org/</licenseUrl>
+		<projectUrl>https://github.com/Aschratt/CThreadPoolEx</projectUrl>
+		<iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+		<releaseNotes></releaseNotes>
+		<description>Extented CThreadPool implementation</description>
+		<summary>An extented ATL CThreadPool utility with some bug fixes, automatic optional COM un-/initialization and support for C++ lambdas.</summary>
+
+		<copyright>Copyright (C) 2017 Carsten Rudolph</copyright>
+		<tags>native com atl thread threadpool</tags>
+	</metadata>
+
+	<files>
+		<file src="readme.md" target="readme.md" />
+		<file src="LICENSE" target="LICENSE" />
+		<file src="CThreadPoolEx.hpp" target="\lib\native\include\CThreadPoolEx.hpp" />
+		<file src="CThreadPoolEx.targets" target="\build\native\Atl.ThreadPoolEx.targets" />
+	</files>
+</package>

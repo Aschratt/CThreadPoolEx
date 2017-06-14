@@ -1,3 +1,10 @@
+# Package output
+/Packages/*
+*.nupkg
+
+# VS Code settings
+/.vs/*
+
 # Prerequisites
 *.d
 
