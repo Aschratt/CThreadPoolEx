@@ -2,7 +2,8 @@
 /Packages/*
 *.nupkg
 
-# VS Code settings
+# VS / Code settings
+/.vscode/*
 /.vs/*
 
 # Prerequisites
