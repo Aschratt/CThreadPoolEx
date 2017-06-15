@@ -22,7 +22,7 @@ The default `CThreadPool` implementation has a bug that can occur if your applic
 ## Example
 
 ```cpp
-#include <stdio>
+#include <iostream>
 #include <CThreadPoolEx.hpp>
 
 int main(int argc, char* argv[]) {
