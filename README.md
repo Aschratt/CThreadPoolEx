@@ -21,24 +21,26 @@ The default `CThreadPool` implementation has a bug that can occur if your applic
 
 ## Example
 
-    #include <stdio>
-    #include <CThreadPoolEx.hpp>
+```cpp
+#include <stdio>
+#include <CThreadPoolEx.hpp>
 
-    int main(int argc, char* argv[]) {
-        // Use this implementation if you work in a COM environment.
-        //CThreadPoolEx<CComLambdaWorker> threadPool;
-        CThreadPoolEx<CLambdaWorker> threadPool;
+int main(int argc, char* argv[]) {
+    // Use this implementation if you work in a COM environment.
+    //CThreadPoolEx<CComLambdaWorker> threadPool;
+    CThreadPoolEx<CLambdaWorker> threadPool;
 
-        // Start a thread pool with 10 threads.
-        threadPool.Initialize(nullptr, 10);
+    // Start a thread pool with 10 threads.
+    threadPool.Initialize(nullptr, 10);
 
-        // Create a set of requests.
-        for (int i = 0; i < 100; i++) {
-            threadPool.QueueRequest(new LambdaRequest( [](const int& _i) {
-                std::cout << "Task " << i << std::endl;
-            }, i));
-        }
-
-        // Wait for all tasks to finish.
-        threadPool.Shutdown(0);
+    // Create a set of requests.
+    for (int i = 0; i < 100; i++) {
+        threadPool.QueueRequest(new LambdaRequest( [](const int& _i) {
+            std::cout << "Task " << i << std::endl;
+        }, i));
     }
+
+    // Wait for all tasks to finish.
+    threadPool.Shutdown(0);
+}
+```
