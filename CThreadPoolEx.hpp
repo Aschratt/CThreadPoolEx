@@ -170,6 +170,8 @@ public:
 	virtual void Execute(RequestType request, LPVOID config, OVERLAPPED* overlapped) throw() override
 	{
 		request->Invoke();
+
+		delete request;
 	}
 };
 
@@ -321,10 +323,6 @@ protected:
 				// Request the queue status.
 				BOOL bStatus = GetQueuedCompletionStatus(m_hRequestQueue, &dwBytesTransfered, &dwCompletionKey, &pOverlapped, INFINITE);
 
-				// * actually it does not yet, but I hope it will!
-				if (!bStatus)
-					break;
-
 				if (pOverlapped == ATLS_POOL_SHUTDOWN) // Shut down
 				{
 					LONG bResult = InterlockedExchange(&m_bShutdown, FALSE);
@@ -333,7 +331,7 @@ protected:
 
 					// else, shutdown has been cancelled -- continue as before
 				}
-				else										// Do work
+				else if (bStatus)										// Do work
 				{
 					typename TWorker::RequestType request = (typename TWorker::RequestType) dwCompletionKey;
 
@@ -343,6 +341,11 @@ protected:
 					// (2) If the request still requires some more processing
 					// the worker should queue the request again for dispatching
 					theWorker.Execute(request, m_pvWorkerParam, pOverlapped);
+				}
+				else
+				{
+					// GetQueuedCompletionStatus returned false (e.g. on application shutdown) and ATLS_POOL_SHUTDOWN has not been set.
+					break;
 				}
 			}
 
