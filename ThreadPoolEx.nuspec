@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
 	<metadata>
 		<id>Atl.ThreadPoolEx</id>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 		<authors>Carsten Rudolph</authors>
 		<owners>Rudolph, Carsten</owners>
 		<licenseUrl>https://mit-license.org/</licenseUrl>
@@ -12,7 +12,7 @@
 
 		<releaseNotes></releaseNotes>
 		<description>Extented CThreadPool implementation</description>
-		<summary>An extented ATL CThreadPool utility with some bug fixes, automatic optional COM un-/initialization and support for C++ lambdas.</summary>
+		<summary>An extended ATL CThreadPool utility with some bug fixes, automatic optional COM un-/initialization and support for C++ lambdas.</summary>
 
 		<copyright>Copyright (C) 2017 Carsten Rudolph</copyright>
 		<tags>native com atl thread threadpool</tags>

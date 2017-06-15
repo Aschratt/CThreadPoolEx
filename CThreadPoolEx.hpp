@@ -203,7 +203,7 @@ class CLambdaWorkerBase :
 /// </summary>
 ///
 /// <seealso cref="https://docs.microsoft.com/en-us/cpp/atl/reference/worker-archetype">Worker Archetype</seealso>
-typedef CLambdaWorkerBase<CThreadInitializeTraits> LambdaWorker;,
+typedef CLambdaWorkerBase<CThreadInitializeTraits> LambdaWorker;
 
 /// <summary>
 /// Describes a COM worker archetype implementation, using on an expression-based request type.
